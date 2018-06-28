@@ -1,0 +1,24 @@
+package com.company.Graphic;
+
+public class Controller {
+    private View view;
+
+    public Controller(View view) {
+        this.view = view;
+    }
+    public void init(){}
+    public void exit()
+    {
+        System.exit(0);
+    }
+    public static void main(String[] args) {
+        View view = new View();
+        Controller controller = new Controller(view);
+        view.setController(controller);
+        view.init();
+        controller.init();
+
+        int number = 0;
+        Table table = new Table(new Number(number));
+    }
+}
