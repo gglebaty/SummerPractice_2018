@@ -1,9 +1,19 @@
 package com.company.Graphic;
 
-public class Square {
+import javax.swing.*;
+import java.awt.*;
+
+public class Square extends JPanel {
     private int size;
     private int xPosition;
     private int yPosition;
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        //g2.
+    }
 
     public Square(int size) {
         this.size = size;
