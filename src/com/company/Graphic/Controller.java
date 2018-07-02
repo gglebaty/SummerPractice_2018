@@ -1,18 +1,29 @@
 package com.company.Graphic;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import View.View;
 
 public class Controller {
     private View view;
 
+    public Controller(View view) {
+        this.view = view;
+    }
+
     public static void main(String[] args) {
         View view = new View();
+        Controller controller = new Controller(view);
+        view.setController(controller);
         view.init();
+    }
+
+    public void setSize(int size)
+    {
+        // создать Model
+    }
+
+    public void exit()
+    {
+        System.exit(0);
     }
 
 }

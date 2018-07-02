@@ -3,7 +3,7 @@ package com.company.Graphic;
 import javax.swing.*;
 import java.awt.*;
 
-public class Square extends JPanel {
+public class Square extends JComponent {
     private int size;
     private int xPosition;
     private int yPosition;

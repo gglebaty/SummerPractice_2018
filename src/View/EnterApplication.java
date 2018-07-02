@@ -81,5 +81,6 @@ public class EnterApplication implements Runnable{
         layout.addLayoutComponent(buttonOk,c);
         mainFrame.add(buttonOk);
 
+        mainFrame.repaint();
     }
 }
