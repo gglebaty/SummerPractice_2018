@@ -6,7 +6,7 @@ public class Global {
     public static boolean isWasFound() {
         return wasFound;
     }
-
+//
     public static void setWasFound(boolean wasFound) {
         Global.wasFound = wasFound;
     }

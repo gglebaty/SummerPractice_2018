@@ -24,7 +24,7 @@ public class Model {
         }
         field = new int [size][size];
     }
-
+//
 //    public boolean isWasFound() {
 //        return wasFound;
 //    }

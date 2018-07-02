@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Controller {
     private View view;
     //private PrimeNumbers info;
-
+//
     public static void main(String[] args) {
         View view = new View();
         //view.init();

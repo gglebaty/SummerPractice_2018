@@ -19,7 +19,7 @@ public class Square {
 //        Graphics2D g2 = (Graphics2D) g;
 //        //g2.
 //    }
-
+//
 
     public int getxPosition() {
         return xPosition;

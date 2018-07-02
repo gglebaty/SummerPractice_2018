@@ -32,7 +32,7 @@ public final class PrimeNumbers {
             { 2, 3, 3, 1, 2, 1, 2, 1 }
     };
     static int lenght;
-
+//
     public static int[] getSquares(int primeNumber)
     {
         int[] primeNumbers = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
