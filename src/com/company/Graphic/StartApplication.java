@@ -74,7 +74,7 @@ public class StartApplication implements Runnable {
             @Override
             public void paint(Graphics g) {
                 try {
-                    BufferedImage image = ImageIO.read(new File("C:\\Users\\Глеб\\Desktop\\SummerPractise\\Project\\617655_gallery.world.jpg"));
+                    BufferedImage image = ImageIO.read(new File("C:\\Users\\Ярослав\\Desktop\\УТЕБАААААА\\4 сем\\практика\\SummerPractice_2018\\617655_gallery.world.jpg"));
                     g.drawImage(image,0,0,dimension.width,dimension.height,null);
                     g.setColor(Color.white);
                     g.setFont(new Font("Blackadder ITC", Font.PLAIN, 200));
