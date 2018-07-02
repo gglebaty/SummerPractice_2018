@@ -1,4 +1,4 @@
-package com.company.Graphic;
+package Model;
 
 import javax.swing.*;
 import java.awt.*;
