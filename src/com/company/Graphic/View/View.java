@@ -1,5 +1,4 @@
-package View;
-
+package com.company.Graphic.View;
 import com.company.Graphic.Controller;
 
 import javax.swing.*;

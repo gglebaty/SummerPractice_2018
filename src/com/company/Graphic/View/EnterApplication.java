@@ -1,4 +1,4 @@
-package View;
+package com.company.Graphic.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -81,6 +81,7 @@ public class EnterApplication implements Runnable{
         layout.addLayoutComponent(buttonOk,c);
         mainFrame.add(buttonOk);
 
-        mainFrame.repaint();
+        mainFrame.getContentPane().revalidate();
+        mainFrame.getContentPane().repaint();
     }
 }

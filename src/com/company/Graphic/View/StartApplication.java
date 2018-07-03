@@ -1,6 +1,5 @@
-package View;
+package com.company.Graphic.View;
 
-import View.View;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -75,8 +74,6 @@ public class StartApplication implements Runnable {
         c.insets = new Insets(15, 0, 0, 0);
         layout.setConstraints(buttonExit,c);
         mainFrame.getContentPane().add(buttonExit);
-        mainFrame.repaint();
-        mainFrame.revalidate();
     }
 
 }

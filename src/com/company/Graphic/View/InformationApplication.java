@@ -1,5 +1,5 @@
-package View;
 
+package com.company.Graphic.View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -46,5 +46,7 @@ public class InformationApplication implements Runnable {
         c.insets = new Insets(10, 0, 0, 0);
         layout.addLayoutComponent(area,c);
         mainFrame.getContentPane().add(area);
+        mainFrame.getContentPane().revalidate();
+        mainFrame.getContentPane().repaint();
     }
 }

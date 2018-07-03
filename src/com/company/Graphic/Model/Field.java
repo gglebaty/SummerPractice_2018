@@ -1,4 +1,4 @@
-package Model;
+package com.company.Graphic.Model;
 
 
 public class Field {

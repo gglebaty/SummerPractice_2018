@@ -1,6 +1,6 @@
 package com.company.Graphic;
 
-import View.View;
+import com.company.Graphic.View.View;
 
 public class Controller {
     private View view;
