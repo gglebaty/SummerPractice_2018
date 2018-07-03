@@ -1,41 +1,59 @@
 package com.company.Graphic.Model;
 
 
-public class Field {
+import javax.swing.*;
+import java.awt.*;
+
+public class Field extends JPanel {
     private int [][] field;
+    private int cellSize ;
     private int size;
 
     public Field(int size) {
         this.size = size;
         field = new int [size][size];
+        cellSize = 900/size;
     }
 
-    public int getSize() {
-        return size;
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        setLayout(null);
+        super.paintComponent(g);
+        Graphics2D graphics2D = (Graphics2D) g;
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field[x].length; y++) {
+                graphics2D.drawRect(x * cellSize, y * cellSize, cellSize, cellSize);
+            }
+        }
     }
 
     public boolean isPossible(int i, int j, Square square)
     {
-        if ((i + square.getSize()) > size || (j + square.getSize()) > size)
+        if ((i + square.getsize()) > size || (j + square.getsize()) > size)
             return false;
-        for (int l = i; l < i + square.getSize(); l++)
-            for (int m = j; m < j + square.getSize(); m++)
+        for (int l = i; l < i + square.getsize(); l++)
+            for (int m = j; m < j + square.getsize(); m++)
                 if (field[l][m] != 0)
                     return false;
         return true;
     }
 
-    public void insertSquare(Square sq, int x, int y)
+    public void insertSquare(Square square, int x, int y)
     {
-        for (int i = x; i < x+sq.getSize(); i++)
+        square.setxPosition(x);
+        square.setyPosition(y);
+       // add(square);
+        //revalidate();
+        //repaint();
+        for (int i = x; i < x+square.getsize(); i++)
         {
-            for (int j = y; j < y+sq.getSize() ; j++)
+            for (int j = y; j < y+square.getsize() ; j++)
             {
-                field[i][j] = sq.getSize();
+                field[i][j] = square.getsize();
 
             }
         }
-
     }
 
     public boolean isFreeCell(int i, int j)

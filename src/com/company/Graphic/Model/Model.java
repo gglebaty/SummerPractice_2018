@@ -33,10 +33,10 @@ public class Model {
 
                 if (!tmp.isInField())
                 {
-
                     if(condition.isPossible(i,j,tmp))
                     {
                         condition.insertSquare(tmp, i, j);
+                        tmp.setInField(true);
                         if (condition.isFreeCell(i, j)) {
                             go(condition, condition.getNextI(i, j), condition.getNextJ(i, j));//go to free cell
                         }
@@ -46,6 +46,7 @@ public class Model {
                             wasFound = true; //to exit the recursive function
                             break;
                         }
+                        tmp.setInField(false);
                     }
                 }
             }

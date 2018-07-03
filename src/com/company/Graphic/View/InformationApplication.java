@@ -2,6 +2,7 @@
 package com.company.Graphic.View;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class InformationApplication implements Runnable {
@@ -26,6 +27,17 @@ public class InformationApplication implements Runnable {
                 "При этом количество квадратов минимально.\n");
         area.setPreferredSize(new Dimension(850,200));
 
+        JButton buttonMenu = new JButton("Menu");
+        buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        buttonMenu.setPreferredSize(new Dimension(400,50));
+        buttonMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.initStartGui();
+            }
+        });
+
+
         GridBagLayout layout = new GridBagLayout();
         mainFrame.setLayout(layout);
 
@@ -46,6 +58,10 @@ public class InformationApplication implements Runnable {
         c.insets = new Insets(10, 0, 0, 0);
         layout.addLayoutComponent(area,c);
         mainFrame.getContentPane().add(area);
+
+        c.insets = new Insets(20, 0, 0, 0);
+        layout.addLayoutComponent(buttonMenu,c);
+        mainFrame.add(buttonMenu);
         mainFrame.getContentPane().revalidate();
         mainFrame.getContentPane().repaint();
     }

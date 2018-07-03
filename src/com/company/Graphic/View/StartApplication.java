@@ -74,6 +74,8 @@ public class StartApplication implements Runnable {
         c.insets = new Insets(15, 0, 0, 0);
         layout.setConstraints(buttonExit,c);
         mainFrame.getContentPane().add(buttonExit);
+        mainFrame.getContentPane().revalidate();
+        mainFrame.getContentPane().repaint();
     }
 
 }

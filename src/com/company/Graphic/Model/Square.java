@@ -1,9 +1,11 @@
 package com.company.Graphic.Model;
 
+import sun.security.krb5.internal.crypto.CksumType;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Square {
+public class Square extends JComponent {
     private int size;
     private int xPosition;
     private int yPosition;
@@ -13,12 +15,13 @@ public class Square {
     {
         this.size = size;
     }
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//        Graphics2D g2 = (Graphics2D) g;
-//        //g2.
-//    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+           Graphics2D g2 = (Graphics2D) g;
+           g.setColor(Color.pink);
+           g2.drawRect(xPosition,yPosition,size,size);
+    }
 //
 
     public int getxPosition() {
@@ -43,7 +46,9 @@ public class Square {
         return inField;
     }
 
-    public int getSize(){ return this.size; }
+    public int getsize() {
+        return size;
+    }
 
     public void print() { System.out.println(this.size); }
 }

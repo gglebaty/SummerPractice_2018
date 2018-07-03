@@ -25,8 +25,10 @@ public class View extends JFrame implements ActionListener {
     }
 
 
-    private void initStartGui() {
+    public void initStartGui() {
+        getContentPane().removeAll();
         SwingUtilities.invokeLater(new StartApplication(this));
+
     }
 
     public void initEnterGui()
@@ -39,6 +41,12 @@ public class View extends JFrame implements ActionListener {
     {
         getContentPane().removeAll();
         SwingUtilities.invokeLater(new InformationApplication(this));
+    }
+
+    public void initWorkPanel(JPanel field, JPanel array)
+    {
+        getContentPane().removeAll();
+        SwingUtilities.invokeLater(new WorkApplication(this,field, array));
     }
 
     public void setSize(int size)

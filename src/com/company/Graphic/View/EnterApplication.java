@@ -38,8 +38,9 @@ public class EnterApplication implements Runnable{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String text = field.getText();
+                int size = 0;
                 try {
-                    int size = Integer.parseInt(text);
+                    size = Integer.parseInt(text);
                     if (size > 0 && size < 40) {
                             mainFrame.setSize(size);
                     }
@@ -53,7 +54,18 @@ public class EnterApplication implements Runnable{
                             "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
                     field.setText("");
                 }
+                mainFrame.setSize(size);
 
+            }
+        });
+
+        JButton buttonMenu = new JButton("Menu");
+        buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        buttonMenu.setPreferredSize(new Dimension(400,50));
+        buttonMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.initStartGui();
             }
         });
 
@@ -80,6 +92,10 @@ public class EnterApplication implements Runnable{
         c.insets = new Insets(30, 0, 0, 0);
         layout.addLayoutComponent(buttonOk,c);
         mainFrame.add(buttonOk);
+
+        c.insets = new Insets(40, 0, 0, 0);
+        layout.addLayoutComponent(buttonMenu,c);
+        mainFrame.add(buttonMenu);
 
         mainFrame.getContentPane().revalidate();
         mainFrame.getContentPane().repaint();
