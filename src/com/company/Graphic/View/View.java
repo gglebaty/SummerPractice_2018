@@ -45,16 +45,17 @@ public class View extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(new InformationApplication(this));
     }
 
-    public void initWorkPanel(JPanel field)
+    public void initWorkPanel(Conditions field, SquareArray squareArray)
     {
         getContentPane().removeAll();
-        SwingUtilities.invokeLater(new WorkApplication(this, field));
+        SwingUtilities.invokeLater(new WorkApplication(this, field, squareArray));
     }
 
     public void setSize(int size)
     {
         controller.setSize(size);
     }
+
     public void exit()
     {
         controller.exit();

@@ -25,12 +25,18 @@ public class Conditions extends JPanel{
         setLayout(null);
         super.paintComponent(g);
         Graphics2D graphics2D = (Graphics2D) g;
-        g.setColor(Color.BLACK);
-        g.fillRect(0,0,200,200);
+        //g.setColor(Color.red);
+
         for (int x = 0; x < size; x++) {
             for (int y = 0; y < size; y++) {
                 graphics2D.drawRect(x * cellSize, y * cellSize, cellSize, cellSize);
             }
+        }
+
+        for (Square s:conditions.get(currentCondition)
+             ) {
+            if(s.isInField())
+                graphics2D.fill3DRect(s.getyPosition()*cellSize, s.getxPosition()*cellSize, cellSize*s.getsize(), cellSize*s.getsize(),true);
         }
     }
 
@@ -41,7 +47,7 @@ public class Conditions extends JPanel{
     }
     public void next()
     {
-        if(currentCondition<conditions.size())
+        if(currentCondition<conditions.size()-1)
             currentCondition++;
     }
 

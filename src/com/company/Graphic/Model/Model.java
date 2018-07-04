@@ -13,6 +13,7 @@ public class Model {
     {
         Number num = new Number(size);
         squares = num.getSquares();
+        addNewCondition(squares);
        // field = new Field(size);
     }
 
@@ -24,9 +25,9 @@ public class Model {
     {
         if (!wasFound)
         {
-           System.out.println("\n");
-            table.printField();
-            System.out.println("\n");
+           //System.out.println("\n");
+            //table.printField();
+            //System.out.println("\n");
             for (int k = 0 ; k < squares.size() ; k++)
             {
                 Field condition = table.makeCopy();

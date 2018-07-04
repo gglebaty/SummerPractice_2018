@@ -1,13 +1,8 @@
 package com.company.Graphic.Model;
 
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-
-public class Field extends JPanel {
+public class Field {
     private int [][] field;
-    private int cellSize ;
     private int size;
     private Model model;
 
@@ -15,27 +10,6 @@ public class Field extends JPanel {
         this.model = model;
         this.size = size;
         field = new int [size][size];
-        cellSize = 900/size;
-    }
-
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        setLayout(null);
-        super.paintComponent(g);
-        Graphics2D graphics2D = (Graphics2D) g;
-        for (int x = 0; x < field.length; x++) {
-            for (int y = 0; y < field[x].length; y++) {
-                graphics2D.drawRect(x * cellSize, y * cellSize, cellSize, cellSize);
-            }
-        }
-        graphics2D.setColor(Color.pink);
-        ArrayList<Square> squares = model.getSquares();
-        for (Square s: squares) {
-            if(s.isInField())
-                graphics2D.fillRect(s.getxPosition()*cellSize,s.getyPosition()*cellSize,s.getsize()*cellSize,s.getsize()*cellSize);
-        }
-
     }
 
     public boolean isPossible(int i, int j, Square square)

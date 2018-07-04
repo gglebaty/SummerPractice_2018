@@ -2,8 +2,8 @@ package com.company.Graphic;
 
 import com.company.Graphic.Model.Field;
 import com.company.Graphic.Model.Model;
-import com.company.Graphic.Model.SquareArray;
 import com.company.Graphic.View.Conditions;
+import com.company.Graphic.View.SquareArray;
 import com.company.Graphic.View.View;
 
 public class Controller {
@@ -28,8 +28,9 @@ public class Controller {
         this.model = new Model(size);
         Field field = new Field(model,size);
         Conditions conditions = new Conditions(model.getConditions(), size);
+        SquareArray squareArray = new SquareArray(model.getConditions(), size);
         model.go(field,0,0);
-        view.initWorkPanel(conditions);
+        view.initWorkPanel(conditions, squareArray);
     }
 
     public void exit()
