@@ -1,10 +1,12 @@
 package com.company.Graphic.View;
 import com.company.Graphic.Controller;
+import com.company.Graphic.Model.Square;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class View extends JFrame implements ActionListener {
 
@@ -43,10 +45,10 @@ public class View extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(new InformationApplication(this));
     }
 
-    public void initWorkPanel(JPanel field, JPanel array)
+    public void initWorkPanel(JPanel field)
     {
         getContentPane().removeAll();
-        SwingUtilities.invokeLater(new WorkApplication(this,field, array));
+        SwingUtilities.invokeLater(new WorkApplication(this, field));
     }
 
     public void setSize(int size)

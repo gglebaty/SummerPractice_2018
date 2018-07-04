@@ -8,33 +8,24 @@ public class WorkApplication implements Runnable {
     private JPanel field;
     private JPanel array;
 
-    public WorkApplication(View mainFrame, JPanel field, JPanel array) {
+    WorkApplication(View mainFrame, JPanel field) {
         this.mainFrame = mainFrame;
         this.field = field;
-        this.array = array;
+        //this.array = array;
     }
 
     @Override
     public void run() {
 
-        /*mainFrame.setLayout(null);
-        field.setSize(new Dimension(1000,1000));
-        mainFrame.add(field);*/
-
-        JPanel workPanel = new JPanel();
-        workPanel.setPreferredSize(new Dimension(1000,500));
-        //workPanel.setBackground(Color.RED);
-
-
         JPanel squaresPanel = new JPanel();
-        squaresPanel.setPreferredSize(new Dimension(1000,500));
         squaresPanel.setBackground(Color.YELLOW);
 
-        mainFrame.getContentPane().setLayout(new BorderLayout());
-        //mainFrame.setLayout(new FlowLayout());
-        mainFrame.getContentPane().add(field);
-        mainFrame.getContentPane().add(array, BorderLayout.EAST);
-        //field.setLayout(null);
+        JPanel rootPanel = new JPanel();
+        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.X_AXIS));
+        rootPanel.add(field);
+        rootPanel.add(squaresPanel, BorderLayout.SOUTH);
+        mainFrame.setContentPane(rootPanel);
+
         mainFrame.revalidate();
         mainFrame.repaint();
 

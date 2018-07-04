@@ -3,13 +3,16 @@ package com.company.Graphic.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Field extends JPanel {
     private int [][] field;
     private int cellSize ;
     private int size;
+    private Model model;
 
-    public Field(int size) {
+    public Field(Model model, int size) {
+        this.model = model;
         this.size = size;
         field = new int [size][size];
         cellSize = 900/size;
@@ -26,6 +29,13 @@ public class Field extends JPanel {
                 graphics2D.drawRect(x * cellSize, y * cellSize, cellSize, cellSize);
             }
         }
+        graphics2D.setColor(Color.pink);
+        ArrayList<Square> squares = model.getSquares();
+        for (Square s: squares) {
+            if(s.isInField())
+                graphics2D.fillRect(s.getxPosition()*cellSize,s.getyPosition()*cellSize,s.getsize()*cellSize,s.getsize()*cellSize);
+        }
+
     }
 
     public boolean isPossible(int i, int j, Square square)
@@ -41,11 +51,6 @@ public class Field extends JPanel {
 
     public void insertSquare(Square square, int x, int y)
     {
-        square.setxPosition(x);
-        square.setyPosition(y);
-       // add(square);
-        //revalidate();
-        //repaint();
         for (int i = x; i < x+square.getsize(); i++)
         {
             for (int j = y; j < y+square.getsize() ; j++)
@@ -54,6 +59,10 @@ public class Field extends JPanel {
 
             }
         }
+        square.setxPosition(x);
+        square.setyPosition(y);
+
+
     }
 
     public boolean isFreeCell(int i, int j)
@@ -105,7 +114,7 @@ public class Field extends JPanel {
 
     public Field makeCopy()
     {
-        Field field1 = new Field(size);
+        Field field1 = new Field(model,size);
         field1.setField(field);
         return field1;
     }

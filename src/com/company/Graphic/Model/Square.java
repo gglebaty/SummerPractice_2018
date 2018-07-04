@@ -50,5 +50,13 @@ public class Square extends JComponent {
         return size;
     }
 
+    public Square makeCopy()
+    {
+        Square s = new Square(size);
+        s.setxPosition(xPosition);
+        s.setyPosition(yPosition);
+        s.setInField(inField);
+        return s;
+    }
     public void print() { System.out.println(this.size); }
 }
