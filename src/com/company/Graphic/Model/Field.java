@@ -94,4 +94,19 @@ public class Field extends JPanel {
             System.out.println("");
         }
     }
+
+    public void setField(int[][] field) {
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                this.field[i][j] = field[i][j];
+            }
+        }
+    }
+
+    public Field makeCopy()
+    {
+        Field field1 = new Field(size);
+        field1.setField(field);
+        return field1;
+    }
 }

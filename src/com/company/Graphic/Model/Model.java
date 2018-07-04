@@ -28,7 +28,7 @@ public class Model {
             System.out.println("\n");
             for (int k = 0 ; k < squares.size() ; k++)
             {
-                Field condition = table;
+                Field condition = table.makeCopy();
                 Square tmp = squares.get(k);
 
                 if (!tmp.isInField())

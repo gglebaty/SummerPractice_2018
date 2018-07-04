@@ -17,9 +17,9 @@ public class Controller {
         View view = new View();
         Controller controller = new Controller(view);
         view.setController(controller);
-        Model model = new Model(7);
-        model.go(new Field(7),0,0);
-        //view.init();
+        //Model model = new Model(7);
+        //model.go(new Field(7),0,0);
+        view.init();
     }
 
     public void setSize(int size)
