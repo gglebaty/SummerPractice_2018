@@ -34,9 +34,11 @@ public class Number {
         for(int i = squares.length - 1 ; i >= 0 ; i--)
         {
             //System.out.println("array lenght:" + num.getLenght());
+            int n = numberOfSquares[i];
             for(int j = numberOfSquares[i] - 1 ; j >= 0 ; j--)
             {
-                result.add(new Square(squares[i] * scale));
+                result.add(new Square(squares[i] * scale, n));
+                n--;
             }
         }
         return result;
