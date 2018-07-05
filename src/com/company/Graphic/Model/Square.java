@@ -56,7 +56,6 @@ public class Square extends JComponent {
         }
         return null;
     }
-
     public Square(int size, int n)
     {
         this.size = size;

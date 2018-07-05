@@ -41,7 +41,7 @@ public class EnterApplication implements Runnable{
                 int size = 0;
                 try {
                     size = Integer.parseInt(text);
-                    if (size > 0 && size < 40) {
+                    if (size > 0 && size < 41) {
                             mainFrame.setSize(size);
                     }
                     else {
