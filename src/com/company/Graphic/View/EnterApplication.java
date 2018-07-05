@@ -54,8 +54,6 @@ public class EnterApplication implements Runnable{
                             "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
                     field.setText("");
                 }
-                mainFrame.setSize(size);
-
             }
         });
 

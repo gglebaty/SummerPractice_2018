@@ -1,12 +1,14 @@
 package com.company.Graphic.View;
 
-import com.company.Graphic.Model.Square;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+import static javax.swing.GroupLayout.Alignment.BASELINE;
+import static javax.swing.GroupLayout.Alignment.LEADING;
 
 public class WorkApplication implements Runnable {
     private View mainFrame;
@@ -24,7 +26,34 @@ public class WorkApplication implements Runnable {
 
         //JPanel squaresPanel = new JPanel();
         //squareArray.setPreferredSize(new Dimension(1000,1000));
+
+
+
+        JPanel rootPanel = new JPanel();
+        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.X_AXIS));
+        rootPanel.add(field);
+        rootPanel.add(createWorkPanel());
+        mainFrame.setContentPane(rootPanel);
+
+        mainFrame.revalidate();
+        mainFrame.repaint();
+
+    }
+
+    public JPanel createWorkPanel()
+    {
+        JPanel workPanel = new JPanel();
+        //workPanel.setMaximumSize(new Dimension(900,900));
+        //workPanel.setBackground(Color.RED);
+        workPanel.setLayout(null);
+
+        JLabel text = new JLabel("Work panel");
+        text.setFont(new Font("TimesRoman",Font.PLAIN,70));
+        text.setBounds(280, 300, 600, 100);
+
         JButton buttonNext = new JButton("Next");
+        buttonNext.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        buttonNext.setBounds(500,500,300,50);
         buttonNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,6 +64,8 @@ public class WorkApplication implements Runnable {
         });
 
         JButton buttonPrev = new JButton("Prev");
+        buttonPrev.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        buttonPrev.setBounds(100,500,300,50);
         buttonPrev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,103 +75,36 @@ public class WorkApplication implements Runnable {
             }
         });
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(field);
-        field.setPreferredSize(new Dimension(1000,1000));
+        JButton buttonResult = new JButton("Result");
+        buttonResult.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        buttonResult.setBounds(325,600,300,50);
+        buttonResult.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                field.result();
+                field.revalidate();
+                field.repaint();
+            }
+        });
 
-        JPanel buttons = new JPanel();
-        buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
-        buttons.add(buttonPrev);
-        buttons.add(buttonNext);
-        panel.add(buttons);
+        JButton buttonMenu = new JButton("Menu");
+        buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        buttonMenu.setBounds(325,700,300,50);
+        buttonMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.initStartGui();
+            }
+        });
 
-        JPanel rootPanel = new JPanel();
-        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.X_AXIS));
-        rootPanel.add(panel);
-        rootPanel.add(squareArray);
-        mainFrame.setContentPane(rootPanel);
-
-        mainFrame.revalidate();
-        mainFrame.repaint();
-
-
-    }
-
-    public class managerPanel extends JPanel {
-
-        @Override
-        protected void paintComponent(Graphics g) {
-        /*super.paintComponent(g);
-        Graphics2D graphics2D = (Graphics2D) g;
-
-        setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        for (Square s:conditions.get(currentCondition)
-                ) {
-            if(!s.isInField())
-                add(s);
-        }
-        revalidate();
-        repaint();*/
-            super.paintComponent(g);
-
-            JLabel label = new JLabel("Work panel");
-
-            JButton buttonMenu = new JButton("Menu");
-
-            JButton buttonNext = new JButton("Next");
-            buttonNext.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    field.next();
-                    field.revalidate();
-                    field.repaint();
-                }
-            });
-
-            JButton buttonPrev = new JButton("Prev");
-            buttonPrev.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    field.prev();
-                    field.revalidate();
-                    field.repaint();
-                }
-            });
+        workPanel.add(text);
+        workPanel.add(buttonNext);
+        workPanel.add(buttonPrev);
+        workPanel.add(buttonResult);
+        workPanel.add(buttonMenu);
 
 
-            GridBagLayout layout = new GridBagLayout();
-            setLayout(layout);
+        return workPanel;
 
-            GridBagConstraints c = new GridBagConstraints();
-            c.anchor = GridBagConstraints.NORTH;
-            c.fill   = GridBagConstraints.NONE;
-            c.gridheight = 1;
-            c.gridwidth  = GridBagConstraints.REMAINDER;
-            c.gridx = GridBagConstraints.RELATIVE;
-            c.gridy = GridBagConstraints.RELATIVE;
-            c.insets = new Insets(10, 0, 0, 0);
-
-
-            layout.addLayoutComponent(label,c);
-            add(label);
-
-            c.insets = new Insets(20, 0, 0, 0);
-            layout.addLayoutComponent(field,c);
-            add(field);
-
-            c.insets = new Insets(30, 0, 0, 0);
-            layout.addLayoutComponent(buttonPrev,c);
-            add(buttonPrev);
-
-            c.insets = new Insets(30, 30, 0, 0);
-            layout.addLayoutComponent(buttonNext,c);
-            add(buttonNext);
-
-            c.insets = new Insets(40, 0, 0, 0);
-            layout.addLayoutComponent(buttonMenu,c);
-            add(buttonMenu);
-        }
     }
 }

@@ -1,6 +1,7 @@
 package com.company.Graphic.View;
 
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -14,8 +15,9 @@ public class StartApplication implements Runnable {
     @Override
     public void run() {
 
-        Button buttonEnter = new Button("Enter size");
+        JButton buttonEnter = new JButton("Enter size");
         buttonEnter.setPreferredSize(new Dimension(400,50));
+        buttonEnter.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonEnter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -23,8 +25,9 @@ public class StartApplication implements Runnable {
             }
         });
 
-        Button buttonExit = new Button("Exit");
+        JButton buttonExit = new JButton("Exit");
         buttonExit.setPreferredSize(new Dimension(400,50));
+        buttonExit.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -32,8 +35,9 @@ public class StartApplication implements Runnable {
             }
         });
 
-        Button buttonInformation = new Button("About Program");
+        JButton buttonInformation = new JButton("About Program");
         buttonInformation.setPreferredSize(new Dimension(400,50));
+        buttonInformation.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonInformation.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -41,8 +45,8 @@ public class StartApplication implements Runnable {
             }
         });
 
-        Label label = new Label("Menu");
-        label.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        JLabel label = new JLabel("Menu");
+        label.setFont(new Font("TimesRoman",Font.PLAIN,50));
 
         GridBagLayout layout = new GridBagLayout();
         mainFrame.setLayout(layout);

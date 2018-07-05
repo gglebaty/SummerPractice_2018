@@ -15,17 +15,33 @@ public class InformationApplication implements Runnable {
     @Override
     public void run() {
 
-        Label label = new Label("Information about program");
-        label.setFont(new Font("TimesRoman",Font.PLAIN,30));
 
-        JTextArea area = new JTextArea();
+        Label label = new Label("Information about program");
+        label.setFont(new Font("TimesRoman",Font.PLAIN,50));
+
+        Label label1 = new Label("Данное приложение решает задачу о разбиении квадрата");
+        label1.setFont(new Font("TimesRoman",Font.PLAIN,30));
+
+        Label label2 = new Label("на конечное число меньших по размеру квадратов.\n");
+        label2.setFont(new Font("TimesRoman",Font.PLAIN,30));
+
+        Label label3 = new Label("Пользователь вводит размеры квадрата, а на выходе\n");
+        label3.setFont(new Font("TimesRoman",Font.PLAIN,30));
+
+        Label label4 = new Label("получает его разбиение на меньшие квадраты.\n");
+        label4.setFont(new Font("TimesRoman",Font.PLAIN,30));
+
+        Label label5 = new Label("При этом количество квадратов минимально.\n");
+        label5.setFont(new Font("TimesRoman",Font.PLAIN,30));
+
+        /*JTextArea area = new JTextArea();
         area.setFont(new Font("TimesRoman",Font.PLAIN,30));
         area.setText("Данное приложение решает задачу о разбиении квадрата\n" +
                 "на конечное число меньших по размеру квадратов.\n" +
                 "Пользователь вводит размеры квадрата, а на выходе\n" +
                 "получает его разбиение на меньшие квадраты.\n" +
                 "При этом количество квадратов минимально.\n");
-        area.setPreferredSize(new Dimension(850,200));
+        area.setPreferredSize(new Dimension(850,200));*/
 
         JButton buttonMenu = new JButton("Menu");
         buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
@@ -55,9 +71,29 @@ public class InformationApplication implements Runnable {
         mainFrame.getContentPane().add(label);
 
 
-        c.insets = new Insets(10, 0, 0, 0);
+        /*c.insets = new Insets(10, 0, 0, 0);
         layout.addLayoutComponent(area,c);
-        mainFrame.getContentPane().add(area);
+        mainFrame.getContentPane().add(area);*/
+
+        c.insets = new Insets(10, 0, 0, 0);
+        layout.addLayoutComponent(label1,c);
+        mainFrame.getContentPane().add(label1);
+
+        c.insets = new Insets(10, 0, 0, 0);
+        layout.addLayoutComponent(label2,c);
+        mainFrame.getContentPane().add(label2);
+
+        c.insets = new Insets(10, 0, 0, 0);
+        layout.addLayoutComponent(label3,c);
+        mainFrame.getContentPane().add(label3);
+
+        c.insets = new Insets(10, 0, 0, 0);
+        layout.addLayoutComponent(label4,c);
+        mainFrame.getContentPane().add(label4);
+
+        c.insets = new Insets(10, 0, 0, 0);
+        layout.addLayoutComponent(label5,c);
+        mainFrame.getContentPane().add(label5);
 
         c.insets = new Insets(20, 0, 0, 0);
         layout.addLayoutComponent(buttonMenu,c);
