@@ -29,8 +29,10 @@ public class Model {
             for (int k = 0; k < squares.size(); k++) {
                 Field condition = table.makeCopy();
                 Square tmp = squares.get(k);
-                if (!tmp.isInField()) {
-                    if (condition.isPossible(i, j, tmp)) {
+                if (!tmp.isInField() && !wasFound)
+                {
+                    if(condition.isPossible(i,j,tmp))
+                    {
                         condition.insertSquare(tmp, i, j);
                         tmp.setInField(true);
                         addNewCondition(squares);
@@ -42,6 +44,9 @@ public class Model {
                             break;
                         }
                         tmp.setInField(false);
+                        if (!wasFound) {
+                            addNewCondition(squares);
+                        }
                     }
 
                     k = k + squares.get(k).getAmount() - 1;
