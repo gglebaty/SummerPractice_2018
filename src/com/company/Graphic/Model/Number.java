@@ -1,5 +1,6 @@
 package com.company.Graphic.Model;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class Number {
     private int number;
@@ -37,7 +38,9 @@ public class Number {
             int n = numberOfSquares[i];
             for(int j = numberOfSquares[i] - 1 ; j >= 0 ; j--)
             {
-                result.add(new Square(squares[i] * scale, n));
+                Square new_square = new Square(squares[i] * scale, n);
+                result.add(new_square);
+                new_square.setColor();
                 n--;
             }
         }

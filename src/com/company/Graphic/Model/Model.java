@@ -50,10 +50,7 @@ public class Model {
                         }
                         tmp.setInField(false);
                     }
-                    else
-                    {
-                        k = k + squares.get(k).getAmount();
-                    }
+                    k = k + squares.get(k).getAmount() - 1;
                 }
             }
         }
