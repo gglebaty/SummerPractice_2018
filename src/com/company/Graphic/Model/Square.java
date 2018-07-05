@@ -13,7 +13,7 @@ public class Square extends JComponent {
     private int yPosition;
     private boolean inField;
     private int amount;
-    private Colors color = Colors.DARKMAGENTA;
+    private Colors color;
 
     public enum Colors
     {
@@ -25,6 +25,12 @@ public class Square extends JComponent {
         PALETURQUOISE,//(175, 238, 238),
         LIGHTSLATEGREY,//(119, 136, 153),
         PEACHPUFF,//(255, 218, 185);
+        LAVENDER,
+        DARKSLATEGREY,
+        LIGHTBLUE,
+        PALEGOLDENROD,
+        PALEGREEN,
+        DARKSEAGREEN;
     };
 
     public void generateColor()
@@ -53,6 +59,18 @@ public class Square extends JComponent {
                 return new Color(119, 136, 153);
             case PEACHPUFF:
                 return new Color(255, 218, 185);
+            case LAVENDER:
+                return new Color(230, 230, 250);
+            case DARKSLATEGREY:
+                return new Color(47, 79, 79);
+            case LIGHTBLUE:
+                return new Color(173, 216, 230);
+            case PALEGOLDENROD:
+                return new Color(238, 232, 170);
+            case PALEGREEN:
+                return new Color(152, 251, 152);
+            case DARKSEAGREEN:
+                return new Color(143, 188, 143);
         }
         return null;
     }
