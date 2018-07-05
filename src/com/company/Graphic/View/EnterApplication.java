@@ -39,38 +39,30 @@ public class EnterApplication implements Runnable{
         JButton buttonOk = new JButton("Ok");
         buttonOk.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonOk.setPreferredSize(new Dimension(500,50));
-        buttonOk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String text = field.getText();
-                int size = 0;
-                try {
-                    size = Integer.parseInt(text);
-                    if (size > 1 && size < 41) {
-                            mainFrame.setSize(size);
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(mainFrame, "Вы ввели некорректные данные. Введите число от 1 до 40",
-                                "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
-                        field.setText("");
-                    }
-                } catch (NumberFormatException e1) {
-                    JOptionPane.showMessageDialog( mainFrame, "Вы ввели некорректные данные. Введите число от 1 до 40",
+        buttonOk.addActionListener(e -> {
+            String text = field.getText();
+            int size = 0;
+            try {
+                size = Integer.parseInt(text);
+                if (size > 1 && size < 41) {
+                        mainFrame.setSize(size);
+                }
+                else {
+                    JOptionPane.showMessageDialog(mainFrame, "Вы ввели некорректные данные. Введите число от 1 до 40",
                             "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
                     field.setText("");
                 }
+            } catch (NumberFormatException e1) {
+                JOptionPane.showMessageDialog( mainFrame, "Вы ввели некорректные данные. Введите число от 1 до 40",
+                        "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
+                field.setText("");
             }
         });
 
         JButton buttonMenu = new JButton("Menu");
         buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonMenu.setPreferredSize(new Dimension(500,50));
-        buttonMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainFrame.initStartGui();
-            }
-        });
+        buttonMenu.addActionListener(e -> mainFrame.initStartGui());
 
         GridBagLayout layout = new GridBagLayout();
         mainFrame.setLayout(layout);

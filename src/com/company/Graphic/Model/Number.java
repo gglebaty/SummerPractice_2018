@@ -9,7 +9,7 @@ public class Number {
     private int[] squares;
     private int[] numberOfSquares;
 
-    public Number(int number) {
+    Number(int number) {
         this.number = number;
         this.primeDivisor = findPrimeDivisor(number);
         this.scale = number / primeDivisor;
@@ -26,42 +26,18 @@ public class Number {
         return -1;
     }
 
-    public int getPrimeDivisor() {
-        return primeDivisor;
-    }
-
     public ArrayList<Square> getSquares(){
         ArrayList<Square> result = new ArrayList<Square>();
         for(int i = squares.length - 1 ; i >= 0 ; i--)
         {
-            //System.out.println("array lenght:" + num.getLenght());
             int n = numberOfSquares[i];
             for(int j = numberOfSquares[i] - 1 ; j >= 0 ; j--)
             {
                 Square new_square = new Square(squares[i] * scale, n);
-               // new_square.setColor();
                 result.add(new_square);
-                //result.add(new Square(squares[i] * scale, n));
                 n--;
             }
         }
         return result;
     }
-
-    public int getLenght() { return squares.length; }
-
-    public int getSquare(int i) { return squares[i]; }
-
-    public void print(){
-        System.out.println(this.number + " " + this.primeDivisor + " " + this.scale);
-        for (int a: squares
-             ) {
-            System.out.println(a);
-        }
-        for (int a: numberOfSquares
-             ) {
-            System.out.println(a);
-        }
-    }
-//
 }

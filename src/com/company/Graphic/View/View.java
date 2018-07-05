@@ -14,10 +14,10 @@ public class View extends JFrame implements ActionListener {
 
     public void setController(Controller controller) {
         this.controller = controller;
+        getContentPane().setBackground(new Color(173, 216, 230));
     }
 
     public void init() {
-        getContentPane().setBackground(new Color(173, 216, 230));
         initStartGui();
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

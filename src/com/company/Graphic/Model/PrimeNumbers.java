@@ -7,7 +7,7 @@ public final class PrimeNumbers {
        private Map<Integer,int []> numberOfSquares = new HashMap<>();
        private Map<Integer, int []> squares = new HashMap<>();
 
-    public PrimeNumbers()
+    PrimeNumbers()
     {
         squares.put(2,new int[]{1});
         squares.put(3,new int[]{ 1 , 2 });
@@ -49,7 +49,6 @@ public final class PrimeNumbers {
 
     }
 
-    //
     public int[] getSquares(int primeNumber)
     {
         return squares.get(primeNumber);

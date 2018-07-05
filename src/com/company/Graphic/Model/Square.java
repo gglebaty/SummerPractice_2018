@@ -1,13 +1,9 @@
 package com.company.Graphic.Model;
 
-import sun.security.krb5.internal.crypto.CksumType;
-
-import javax.swing.*;
-import java.awt.*;
 import java.awt.Color;
 import java.util.Random;
 
-public class Square extends JComponent {
+public class Square {
     private int size;
     private int xPosition;
     private int yPosition;
@@ -17,14 +13,14 @@ public class Square extends JComponent {
 
     public enum Colors
     {
-        THISTLE,//(216, 191, 216),
-        ORCHID,//(218, 112, 214),
-        MEDIUMPURPLE,//(147, 112, 219),
-        LIGHTSTEELBLUE,//(176, 196, 222),
-        DARKMAGENTA,//(139, 0, 139),
-        PALETURQUOISE,//(175, 238, 238),
-        LIGHTSLATEGREY,//(119, 136, 153),
-        PEACHPUFF,//(255, 218, 185);
+        THISTLE,
+        ORCHID,
+        MEDIUMPURPLE,
+        LIGHTSTEELBLUE,
+        DARKMAGENTA,
+        PALETURQUOISE,
+        LIGHTSLATEGREY,
+        PEACHPUFF,
         LAVENDER,
         DARKSLATEGREY,
         LIGHTBLUE,
@@ -33,7 +29,7 @@ public class Square extends JComponent {
         DARKSEAGREEN;
     };
 
-    public void generateColor()
+    private void generateColor()
     {
         int r = new Random().nextInt(Colors.values().length);
         color = Colors.values()[r];
@@ -74,20 +70,13 @@ public class Square extends JComponent {
         }
         return null;
     }
-    public Square(int size, int n)
+    Square(int size, int n)
     {
         this.size = size;
         this.amount = n;
         generateColor();
     }
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-           Graphics2D g2 = (Graphics2D) g;
-           g.setColor(Color.pink);
-           g2.drawRect(xPosition,yPosition,size,size);
-    }
-//
+
 
     public int getxPosition() {
         return xPosition;
@@ -117,7 +106,7 @@ public class Square extends JComponent {
 
     public int getAmount() { return amount; }
 
-    public void setColor(Colors color) {
+    private void setColor(Colors color) {
         this.color = color;
     }
 
@@ -130,5 +119,4 @@ public class Square extends JComponent {
         s.setColor(color);
         return s;
     }
-    public void print() { System.out.println(this.size); }
 }

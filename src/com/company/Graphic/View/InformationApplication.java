@@ -34,24 +34,10 @@ public class InformationApplication implements Runnable {
         Label label5 = new Label("The number of the squares is minimal.\n");
         label5.setFont(new Font("TimesRoman",Font.PLAIN,30));
 
-        /*JTextArea area = new JTextArea();
-        area.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        area.setText("Данное приложение решает задачу о разбиении квадрата\n" +
-                "на конечное число меньших по размеру квадратов.\n" +
-                "Пользователь вводит размеры квадрата, а на выходе\n" +
-                "получает его разбиение на меньшие квадраты.\n" +
-                "При этом количество квадратов минимально.\n");
-        area.setPreferredSize(new Dimension(850,200));*/
-
         JButton buttonMenu = new JButton("Menu");
         buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonMenu.setPreferredSize(new Dimension(500,50));
-        buttonMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainFrame.initStartGui();
-            }
-        });
+        buttonMenu.addActionListener(e -> mainFrame.initStartGui());
 
 
         GridBagLayout layout = new GridBagLayout();
