@@ -13,7 +13,7 @@ public class Square extends JComponent {
     private int yPosition;
     private boolean inField;
     private int amount;
-    private Colors color;
+    private Colors color = Colors.DARKMAGENTA;
 
     public enum Colors
     {
@@ -27,7 +27,7 @@ public class Square extends JComponent {
         PEACHPUFF,//(255, 218, 185);
     };
 
-    public void setColor()
+    public void generateColor()
     {
         int r = new Random().nextInt(Colors.values().length);
         color = Colors.values()[r];
@@ -60,6 +60,7 @@ public class Square extends JComponent {
     {
         this.size = size;
         this.amount = n;
+        generateColor();
     }
     @Override
     protected void paintComponent(Graphics g) {
@@ -98,12 +99,17 @@ public class Square extends JComponent {
 
     public int getAmount() { return amount; }
 
+    public void setColor(Colors color) {
+        this.color = color;
+    }
+
     public Square makeCopy()
     {
         Square s = new Square(size, amount);
         s.setxPosition(xPosition);
         s.setyPosition(yPosition);
         s.setInField(inField);
+        s.setColor(color);
         return s;
     }
     public void print() { System.out.println(this.size); }

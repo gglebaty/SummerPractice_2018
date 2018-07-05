@@ -39,9 +39,9 @@ public class Number {
             for(int j = numberOfSquares[i] - 1 ; j >= 0 ; j--)
             {
                 Square new_square = new Square(squares[i] * scale, n);
+               // new_square.setColor();
                 result.add(new_square);
-                new_square.setColor();
-                result.add(new Square(squares[i] * scale, n));
+                //result.add(new Square(squares[i] * scale, n));
                 n--;
             }
         }

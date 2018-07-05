@@ -37,8 +37,10 @@ public class Conditions extends JPanel{
 
         for (Square s:conditions.get(currentCondition)
              ) {
-            if(s.isInField())
-                graphics2D.fill3DRect(s.getyPosition()*cellSize+header, s.getxPosition()*cellSize+header, cellSize*s.getsize(), cellSize*s.getsize(),true);
+            if(s.isInField()) {
+                graphics2D.setColor(s.getColor());
+                graphics2D.fill3DRect(s.getyPosition() * cellSize + header, s.getxPosition() * cellSize + header, cellSize * s.getsize(), cellSize * s.getsize(), true);
+            }
         }
     }
 
