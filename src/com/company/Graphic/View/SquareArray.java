@@ -21,10 +21,9 @@ public class SquareArray extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        /*super.paintComponent(g);
         Graphics2D graphics2D = (Graphics2D) g;
 
-        //setPreferredSize(new Dimension(900,900));
         setLayout(new FlowLayout(FlowLayout.CENTER));
 
         for (Square s:conditions.get(currentCondition)
@@ -32,7 +31,11 @@ public class SquareArray extends JPanel {
             if(!s.isInField())
                 add(s);
         }
-        //revalidate();
-        //repaint();
+        revalidate();
+        repaint();*/
+        super.paintComponent(g);
+
+        JLabel title = new JLabel("Work panel");
+
     }
 }

@@ -11,6 +11,7 @@ public class Conditions extends JPanel{
     private int currentCondition;
     private int cellSize ;
     private int size;
+    private int header = 100;
 
     public Conditions(ArrayList<ArrayList<Square>> conditions, int size) {
         this.conditions = conditions;
@@ -26,17 +27,18 @@ public class Conditions extends JPanel{
         super.paintComponent(g);
         Graphics2D graphics2D = (Graphics2D) g;
         //g.setColor(Color.red);
-
+        g.setFont(new Font("TimesRoman",Font.PLAIN,60));
+        graphics2D.drawString("Field", 450,55);
         for (int x = 0; x < size; x++) {
             for (int y = 0; y < size; y++) {
-                graphics2D.drawRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                graphics2D.drawRect(x * cellSize+header, y * cellSize+header, cellSize, cellSize);
             }
         }
 
         for (Square s:conditions.get(currentCondition)
              ) {
             if(s.isInField())
-                graphics2D.fill3DRect(s.getyPosition()*cellSize, s.getxPosition()*cellSize, cellSize*s.getsize(), cellSize*s.getsize(),true);
+                graphics2D.fill3DRect(s.getyPosition()*cellSize+header, s.getxPosition()*cellSize+header, cellSize*s.getsize(), cellSize*s.getsize(),true);
         }
     }
 
