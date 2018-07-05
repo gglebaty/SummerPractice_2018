@@ -10,10 +10,12 @@ public class Square extends JComponent {
     private int xPosition;
     private int yPosition;
     private boolean inField;
+    private int amount;
 
-    public Square(int size)
+    public Square(int size, int n)
     {
         this.size = size;
+        this.amount = n;
     }
     @Override
     protected void paintComponent(Graphics g) {
@@ -50,9 +52,11 @@ public class Square extends JComponent {
         return size;
     }
 
+    public int getAmount() { return amount; }
+
     public Square makeCopy()
     {
-        Square s = new Square(size);
+        Square s = new Square(size, amount);
         s.setxPosition(xPosition);
         s.setyPosition(yPosition);
         s.setInField(inField);

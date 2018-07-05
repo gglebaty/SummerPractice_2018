@@ -21,39 +21,35 @@ public class Model {
         return squares;
     }
 
-    public void go(Field table, int i, int j)
-    {
-        if (!wasFound)
-        {
-           //System.out.println("\n");
+    public void go(Field table, int i, int j) {
+        if (!wasFound) {
+            //System.out.println("\n");
             //table.printField();
             //System.out.println("\n");
-            for (int k = 0 ; k < squares.size() ; k++)
-            {
+            for (int k = 0; k < squares.size(); k++) {
                 Field condition = table.makeCopy();
                 Square tmp = squares.get(k);
-                if (!tmp.isInField())
-                {
-                    if(condition.isPossible(i,j,tmp))
-                    {
+                if (!tmp.isInField()) {
+                    if (condition.isPossible(i, j, tmp)) {
                         condition.insertSquare(tmp, i, j);
                         tmp.setInField(true);
                         addNewCondition(squares);
                         if (condition.isFreeCell(i, j)) {
                             go(condition, condition.getNextI(i, j), condition.getNextJ(i, j));//go to free cell
-                        }
-                        else
-                        {
+                        } else {
                             //condition.printField();
                             wasFound = true; //to exit the recursive function
                             break;
                         }
                         tmp.setInField(false);
                     }
+
+                    k = k + squares.get(k).getAmount() - 1;
                 }
             }
         }
     }
+
     private void addNewCondition(ArrayList<Square> squares)
     {
         ArrayList<Square> list = new ArrayList<>();

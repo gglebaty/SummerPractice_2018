@@ -32,7 +32,7 @@ public class SquareArray extends JPanel {
             if(!s.isInField())
                 add(s);
         }
-        revalidate();
-        repaint();
+        //revalidate();
+        //repaint();
     }
 }

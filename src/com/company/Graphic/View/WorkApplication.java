@@ -44,6 +44,7 @@ public class WorkApplication implements Runnable {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(field);
+        field.setPreferredSize(new Dimension(1000,1000));
 
         JPanel buttons = new JPanel();
         buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
