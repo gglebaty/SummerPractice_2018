@@ -28,7 +28,7 @@ public class Conditions extends JPanel{
         Graphics2D graphics2D = (Graphics2D) g;
         //g.setColor(Color.red);
         g.setFont(new Font("TimesRoman",Font.PLAIN,80));
-        graphics2D.drawString("Field", 430,70);
+        graphics2D.drawString("Field", 400,70);
         for (int x = 0; x < size; x++) {
             for (int y = 0; y < size; y++) {
                 graphics2D.drawRect(x * cellSize+header, y * cellSize+2*header, cellSize, cellSize);
@@ -45,6 +45,8 @@ public class Conditions extends JPanel{
                 graphics2D.drawString(s.getsize()+"",(int)(s.getyPosition() * cellSize + cellSize* s.getsize()/2 + header),(int)(s.getxPosition() *cellSize + cellSize* s.getsize()/2 + 2*header));
             }
         }
+        graphics2D.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        graphics2D.drawString(currentCondition+"/"+(conditions.size()-1), 450,1000);
     }
 
     public void prev()
