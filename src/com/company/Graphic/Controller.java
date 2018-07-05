@@ -27,9 +27,9 @@ public class Controller {
     {
         this.model = new Model(size);
         Field field = new Field(model,size);
+        model.go(field,0,0);
         Conditions conditions = new Conditions(model.getConditions(), size);
         SquareArray squareArray = new SquareArray(model.getConditions(), size);
-        model.go(field,0,0);
         view.initWorkPanel(conditions, squareArray);
     }
 

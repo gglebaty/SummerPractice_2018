@@ -32,13 +32,15 @@ public class Model {
             {
                 Field condition = table.makeCopy();
                 Square tmp = squares.get(k);
-                if (!tmp.isInField())
+                if (!tmp.isInField() && !wasFound)
                 {
                     if(condition.isPossible(i,j,tmp))
                     {
                         condition.insertSquare(tmp, i, j);
                         tmp.setInField(true);
-                        addNewCondition(squares);
+                        //if (!wasFound) {
+                            addNewCondition(squares);
+                        //}
                         if (condition.isFreeCell(i, j)) {
                             go(condition, condition.getNextI(i, j), condition.getNextJ(i, j));//go to free cell
                         }
@@ -49,6 +51,9 @@ public class Model {
                             break;
                         }
                         tmp.setInField(false);
+                        if (!wasFound) {
+                            addNewCondition(squares);
+                        }
                     }
                     k = k + squares.get(k).getAmount() - 1;
                 }
