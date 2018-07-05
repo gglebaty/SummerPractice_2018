@@ -3,7 +3,6 @@ package com.company.Graphic;
 import com.company.Graphic.Model.Field;
 import com.company.Graphic.Model.Model;
 import com.company.Graphic.View.Conditions;
-import com.company.Graphic.View.SquareArray;
 import com.company.Graphic.View.View;
 
 public class Controller {
@@ -29,8 +28,7 @@ public class Controller {
         Field field = new Field(model,size);
         model.go(field,0,0);
         Conditions conditions = new Conditions(model.getConditions(), size);
-        SquareArray squareArray = new SquareArray(model.getConditions(), size);
-        view.initWorkPanel(conditions, squareArray);
+        view.initWorkPanel(conditions);
     }
 
     public void exit()

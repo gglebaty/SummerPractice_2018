@@ -13,12 +13,10 @@ import static javax.swing.GroupLayout.Alignment.LEADING;
 public class WorkApplication implements Runnable {
     private View mainFrame;
     private Conditions field;
-    private SquareArray squareArray;
 
-    WorkApplication(View mainFrame, Conditions field, SquareArray squareArray) {
+    WorkApplication(View mainFrame, Conditions field) {
         this.mainFrame = mainFrame;
         this.field = field;
-        this.squareArray = squareArray;
     }
 
     @Override
@@ -51,9 +49,9 @@ public class WorkApplication implements Runnable {
         text.setFont(new Font("TimesRoman",Font.PLAIN,70));
         text.setBounds(280, 300, 600, 100);
 
-        JButton buttonNext = new JButton("Next");
+        JButton buttonNext = new JButton("→");
         buttonNext.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonNext.setBounds(500,500,300,50);
+        buttonNext.setBounds(550,500,350,50);
         buttonNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,10 +60,19 @@ public class WorkApplication implements Runnable {
                 field.repaint();
             }
         });
+        workPanel.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //super.keyPressed(e);
+                if (e.getKeyCode()== KeyEvent.VK_RIGHT) {
+                    buttonNext.doClick();
+                }
+            }
+        });
 
-        JButton buttonPrev = new JButton("Prev");
+        JButton buttonPrev = new JButton("←");
         buttonPrev.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonPrev.setBounds(100,500,300,50);
+        buttonPrev.setBounds(50,500,350,50);
         buttonPrev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,10 +81,19 @@ public class WorkApplication implements Runnable {
                 field.repaint();
             }
         });
+       workPanel.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //super.keyPressed(e);
+                if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+                    buttonPrev.doClick();
+                }
+            }
+        });
 
         JButton buttonResult = new JButton("Result");
         buttonResult.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonResult.setBounds(325,600,300,50);
+        buttonResult.setBounds(220,600,500,50);
         buttonResult.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,9 +103,10 @@ public class WorkApplication implements Runnable {
             }
         });
 
+
         JButton buttonMenu = new JButton("Menu");
         buttonMenu.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonMenu.setBounds(325,700,300,50);
+        buttonMenu.setBounds(220,700,500,50);
         buttonMenu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,6 +114,7 @@ public class WorkApplication implements Runnable {
             }
         });
 
+        workPanel.setBackground(new Color(173, 216, 230));
         workPanel.add(text);
         workPanel.add(buttonNext);
         workPanel.add(buttonPrev);

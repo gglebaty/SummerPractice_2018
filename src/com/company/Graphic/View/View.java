@@ -17,6 +17,7 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void init() {
+        getContentPane().setBackground(new Color(173, 216, 230));
         initStartGui();
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -45,10 +46,10 @@ public class View extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(new InformationApplication(this));
     }
 
-    public void initWorkPanel(Conditions field, SquareArray squareArray)
+    public void initWorkPanel(Conditions field)
     {
         getContentPane().removeAll();
-        SwingUtilities.invokeLater(new WorkApplication(this, field, squareArray));
+        SwingUtilities.invokeLater(new WorkApplication(this, field));
     }
 
     public void setSize(int size)
