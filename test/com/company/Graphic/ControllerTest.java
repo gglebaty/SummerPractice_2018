@@ -3,6 +3,7 @@ package com.company.Graphic;
 import com.company.Graphic.Model.Field;
 import com.company.Graphic.Model.Model;
 import com.company.Graphic.Model.Square;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -23,7 +24,7 @@ class ControllerTest {
     @Test
     void setSize_2() {
         Model model = new Model(7);
-        Field field = new Field(model,7);
+        Field field = new Field(7);
         model.go(field,0,0);
         ArrayList<ArrayList<Square>> conditions = model.getConditions();
         double area = 0;
@@ -44,7 +45,7 @@ class ControllerTest {
     @Test
     void setSize_3(){
         Model model2 = new Model(2);
-        Field field2 = new Field(model2,2);
+        Field field2 = new Field(2);
         model2.go(field2,0,0);
         ArrayList<ArrayList<Square>> conditions2 = model2.getConditions();
         double area2 = 0;
@@ -64,7 +65,7 @@ class ControllerTest {
     @Test
     void setSize_4(){
         Model model3 = new Model(40);
-        Field field3 = new Field(model3,40);
+        Field field3 = new Field(40);
         model3.go(field3,0,0);
         ArrayList<ArrayList<Square>> conditions3 = model3.getConditions();
         double area3 = 0;

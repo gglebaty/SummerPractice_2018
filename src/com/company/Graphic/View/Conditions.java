@@ -18,16 +18,14 @@ public class Conditions extends JPanel{
         this.cellSize = 860/size;
         this.size = size;
         this.currentCondition = 0;
+        setBackground(new Color(173, 216, 230));
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         setLayout(null);
-        super.paintComponent(g);
         Graphics2D graphics2D = (Graphics2D) g;
-        //g.setColor(Color.red);
-        setBackground(new Color(173, 216, 230));
         g.setFont(new Font("TimesRoman",Font.PLAIN,80));
         graphics2D.drawString("Field", 400,70);
         for (int x = 0; x < size; x++) {

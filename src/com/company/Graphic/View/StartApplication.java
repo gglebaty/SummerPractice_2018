@@ -3,7 +3,6 @@ package com.company.Graphic.View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class StartApplication implements Runnable {
     private View mainFrame;
@@ -18,32 +17,17 @@ public class StartApplication implements Runnable {
         JButton buttonEnter = new JButton("Enter the size");
         buttonEnter.setPreferredSize(new Dimension(500,50));
         buttonEnter.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonEnter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                mainFrame.initEnterGui();
-            }
-        });
+        buttonEnter.addActionListener(e -> mainFrame.initEnterGui());
 
         JButton buttonExit = new JButton("Exit");
         buttonExit.setPreferredSize(new Dimension(500,50));
         buttonExit.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonExit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                mainFrame.exit();
-            }
-        });
+        buttonExit.addActionListener(e -> mainFrame.exit());
 
         JButton buttonInformation = new JButton("About the program");
         buttonInformation.setPreferredSize(new Dimension(500,50));
         buttonInformation.setFont(new Font("TimesRoman",Font.PLAIN,30));
-        buttonInformation.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                mainFrame.initInformationGui();
-            }
-        });
+        buttonInformation.addActionListener(e -> mainFrame.initInformationGui());
 
         JLabel label = new JLabel("Menu");
         label.setFont(new Font("TimesRoman",Font.PLAIN,50));

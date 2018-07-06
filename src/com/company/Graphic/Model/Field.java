@@ -4,10 +4,8 @@ package com.company.Graphic.Model;
 public class Field {
     private int [][] field;
     private int size;
-    private Model model;
 
-    public Field(Model model, int size) {
-        this.model = model;
+    public Field(int size) {
         this.size = size;
         field = new int [size][size];
     }
@@ -66,19 +64,7 @@ public class Field {
         return -1;
     }
 
-    public void printField()
-    {
-        for (int i = 0 ; i < field.length ; i++)
-        {
-            for (int j = 0 ; j < field[i].length ; j++)
-            {
-                System.out.print(field[i][j]);
-            }
-            System.out.println("");
-        }
-    }
-
-    public void setField(int[][] field) {
+    private void setField(int[][] field) {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 this.field[i][j] = field[i][j];
@@ -88,7 +74,7 @@ public class Field {
 
     public Field makeCopy()
     {
-        Field field1 = new Field(model,size);
+        Field field1 = new Field(size);
         field1.setField(field);
         return field1;
     }
