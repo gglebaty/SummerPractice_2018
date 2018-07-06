@@ -3,25 +3,33 @@ package com.company.Graphic;
 import com.company.Graphic.Model.Field;
 import com.company.Graphic.Model.Model;
 import com.company.Graphic.Model.Square;
-import com.company.Graphic.View.Conditions;
-import com.company.Graphic.View.View;
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class ControllerTest {
+class ControllerTest {
 
     @Test
-    public void setSize() {
+    void setSize() {
+        Throwable exception = assertThrows(NullPointerException.class, () -> {
+            new Model(-173);
+        });
+        assertNull(exception.getMessage());
+    }
+
+    @Test
+    void setSize_2() {
         Model model = new Model(7);
         Field field = new Field(7);
         model.go(field,0,0);
         ArrayList<ArrayList<Square>> conditions = model.getConditions();
         double area = 0;
         for (Square s: conditions.get(0)
-             ) {
+                ) {
             assertEquals(s.isInField(),false);
             area += Math.pow(s.getsize(),2);
         }
@@ -32,7 +40,10 @@ public class ControllerTest {
                 ) {
             assertEquals(s.isInField(),true);
         }
+    }
 
+    @Test
+    void setSize_3(){
         Model model2 = new Model(2);
         Field field2 = new Field(2);
         model2.go(field2,0,0);
@@ -49,7 +60,10 @@ public class ControllerTest {
                 ) {
             assertEquals(s.isInField(),true);
         }
+    }
 
+    @Test
+    void setSize_4(){
         Model model3 = new Model(40);
         Field field3 = new Field(40);
         model3.go(field3,0,0);
@@ -66,6 +80,14 @@ public class ControllerTest {
                 ) {
             assertEquals(s.isInField(),true);
         }
-
     }
+
+    @Test
+    void setSize_5() {
+        Throwable exception = assertThrows(NullPointerException.class, () -> {
+            new Model(89);
+        });
+        assertNull(exception.getMessage());
+    }
+
 }
