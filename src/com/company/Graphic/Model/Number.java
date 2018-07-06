@@ -3,16 +3,13 @@ import java.util.ArrayList;
 import java.awt.Color;
 
 public class Number {
-    private int number;
     private int scale;
-    private int primeDivisor;
     private int[] squares;
     private int[] numberOfSquares;
 
     Number(int number) {
-        this.number = number;
-        this.primeDivisor = findPrimeDivisor(number);
-        this.scale = number / primeDivisor;
+        int primeDivisor = findPrimeDivisor(number);
+        this.scale = number / findPrimeDivisor(number);
         PrimeNumbers primeNumbers = new PrimeNumbers();
         this.squares = primeNumbers.getSquares(primeDivisor);
         this.numberOfSquares = primeNumbers.getNumberOfSquares(primeDivisor);

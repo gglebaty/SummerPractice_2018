@@ -9,9 +9,15 @@ import java.awt.event.KeyEvent;
 
 public class EnterApplication implements Runnable{
     private View mainFrame;
+    String text;
 
     public EnterApplication(View mainFrame) {
         this.mainFrame = mainFrame;
+    }
+
+    public EnterApplication(View mainFrame, String text) {
+        this.mainFrame = mainFrame;
+        this.text = text;
     }
 
     @Override
@@ -20,8 +26,11 @@ public class EnterApplication implements Runnable{
         JLabel label = new JLabel("Enter the size of the square");
         label.setFont(new Font("TimesRoman",Font.PLAIN,50));
 
-        JLabel moreThan = new JLabel("2<=");
-        moreThan.setFont(new Font("TimesRoman",Font.PLAIN,30));
+        JLabel moreThan = new JLabel("2≤");
+        moreThan.setFont(new Font("TimesRoman",Font.PLAIN,40));
+
+        JLabel lessThan = new JLabel("≤40");
+        lessThan.setFont(new Font("TimesRoman",Font.PLAIN,40));
 
 
         JTextField field = new JTextField();
@@ -40,7 +49,7 @@ public class EnterApplication implements Runnable{
         buttonOk.setFont(new Font("TimesRoman",Font.PLAIN,30));
         buttonOk.setPreferredSize(new Dimension(500,50));
         buttonOk.addActionListener(e -> {
-            String text = field.getText();
+            text = field.getText();
             int size = 0;
             try {
                 size = Integer.parseInt(text);
@@ -48,13 +57,13 @@ public class EnterApplication implements Runnable{
                         mainFrame.setSize(size);
                 }
                 else {
-                    JOptionPane.showMessageDialog(mainFrame, "Вы ввели некорректные данные. Введите число от 1 до 40",
-                            "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "You entered incorrect data. Please, enter the number between 2 and 40.",
+                            "Incorrect input", JOptionPane.PLAIN_MESSAGE);
                     field.setText("");
                 }
             } catch (NumberFormatException e1) {
-                JOptionPane.showMessageDialog( mainFrame, "Вы ввели некорректные данные. Введите число от 1 до 40",
-                        "Некорректный ввод", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog( mainFrame, "You entered incorrect data. Please, enter the number between 2 and 40.",
+                        "Incorrect input", JOptionPane.PLAIN_MESSAGE);
                 field.setText("");
             }
         });
@@ -68,7 +77,7 @@ public class EnterApplication implements Runnable{
         mainFrame.setLayout(layout);
 
         GridBagConstraints c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.NORTH;
+        c.anchor = GridBagConstraints.CENTER;
         c.fill   = GridBagConstraints.NONE;
         c.gridheight = 1;
         c.gridwidth  = GridBagConstraints.REMAINDER;
@@ -77,16 +86,19 @@ public class EnterApplication implements Runnable{
         c.insets = new Insets(10, 0, 0, 0);
 
 
+        JPanel sizes = new JPanel();
+        sizes.setBackground(new Color(173, 216, 230));
+        sizes.setLayout(new BoxLayout(sizes, BoxLayout.X_AXIS));
+        sizes.add(moreThan);
+        sizes.add(field);
+        sizes.add(lessThan);
+
         layout.addLayoutComponent(label,c);
         mainFrame.getContentPane().add(label);
 
-        //layout.addLayoutComponent(moreThan,c);
-       // mainFrame.add(moreThan);
-
-        c.gridwidth = GridBagConstraints.REMAINDER;;
         c.insets = new Insets(20, 0, 0, 0);
-        layout.addLayoutComponent(field,c);
-        mainFrame.add(field);
+        layout.addLayoutComponent(sizes,c);
+        mainFrame.add(sizes);
 
         c.insets = new Insets(40, 0, 0, 0);
         layout.addLayoutComponent(buttonOk,c);
@@ -99,4 +111,6 @@ public class EnterApplication implements Runnable{
         mainFrame.getContentPane().revalidate();
         mainFrame.getContentPane().repaint();
     }
+
+
 }
